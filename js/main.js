@@ -297,6 +297,46 @@
     });
   }
 
+  /* ---------- Stage curtains: part as the visitor scrolls ---------- */
+  (function () {
+    const hero = document.getElementById("hero");
+    if (!hero || !hero.querySelector(".curtain--left")) return;
+
+    const setO = (v) => hero.style.setProperty("--o", v.toFixed(3));
+
+    if (prefersReduced) { setO(1); return; }
+
+    let intro = 0;            // small load-time teaser (0 → ~0.18)
+    const scrub = () => {
+      const h = hero.offsetHeight || window.innerHeight;
+      const p = Math.min(1, Math.max(0, window.scrollY / (h * 0.8)));
+      setO(Math.max(intro, p));
+    };
+
+    // Intro "breath": ease the panels slightly apart on load, then scroll takes over.
+    let start = null;
+    const dur = 950;
+    const introAnim = (t) => {
+      if (start === null) start = t;
+      const k = Math.min(1, (t - start) / dur);
+      intro = 0.18 * (1 - Math.pow(1 - k, 3)); // easeOutCubic
+      scrub();
+      if (k < 1) requestAnimationFrame(introAnim);
+    };
+    requestAnimationFrame(introAnim);
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => { scrub(); ticking = false; });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    scrub();
+  })();
+
   /* ---------- Footer year fallback (in case element missing) ---------- */
   // (handled above)
 })();

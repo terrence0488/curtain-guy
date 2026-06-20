@@ -443,6 +443,66 @@ ul, ol { list-style: none; }
   transform: translateY(-100%);
   animation: scrollHint 2.4s var(--ease) infinite;
 }
+
+/* =================== STAGE CURTAINS =================== */
+/* Two velvet panels that part as the visitor scrolls (see main.js). */
+.hero__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;            /* above .hero__bg (0), below .hero__content (2) */
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero__rod {
+  position: absolute;
+  top: 0;
+  left: -3%;
+  right: -3%;
+  height: 14px;
+  background: linear-gradient(180deg, #7a6240 0%, #4a3a26 45%, #2c2114 100%);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+  z-index: 3;
+}
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 53%;            /* slight overlap at the centre when closed */
+  /* --o: 0 (closed) → 1 (drawn fully off-stage); driven by main.js */
+  transform-origin: top center;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.curtain--left  { left: 0;  transform: translateX(calc(var(--o, 0) * -102%)); }
+.curtain--right { right: 0; transform: translateX(calc(var(--o, 0) *  102%)); }
+/* Fabric: deep velvet with vertical folds + warm top sheen */
+.curtain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(0,0,0,0.34) 0px,
+      rgba(255,255,255,0.045) 16px,
+      rgba(0,0,0,0.20) 34px,
+      rgba(0,0,0,0.34) 52px),
+    linear-gradient(180deg, rgba(194,168,120,0.14) 0%, rgba(194,168,120,0.02) 18%, transparent 40%),
+    linear-gradient(180deg, #271f16 0%, #181309 55%, #0c0a06 100%);
+  box-shadow: inset 0 -120px 120px -60px rgba(0,0,0,0.6);
+}
+/* Brass piping along the leading (inner) edge of each panel */
+.curtain--left::after  { right: 0; }
+.curtain--right::after { left: 0; }
+.curtain::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--brass-light), var(--brass-deep));
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.55);
+}
 @keyframes scrollHint {
   0% { transform: translateY(-100%); }
   50% { transform: translateY(0); }
@@ -1167,6 +1227,7 @@ ul, ol { list-style: none; }
   .reveal { opacity: 1; transform: none; }
   .hero__bg { transform: none !important; }
   .hero__scroll-line::after { animation: none; }
+  .hero__stage { display: none; }
 }
 
 /* ---------- Print ---------- */
