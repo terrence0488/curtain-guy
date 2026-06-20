@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curtain Guy — Calvin. Professional installation of curtains, blinds & tracks. Precision-fitted, by a trusted neighbourhood specialist." />
+  <meta name="theme-color" content="#16130f" />
+  <title>Curtain Guy — Calvin · Curtains, Blinds & Tracks</title>
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fraunces (display serif) + Inter (sans body/UI) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <!-- Favicon (inline SVG: brass square) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316130f'/%3E%3Crect x='8' y='8' width='16' height='16' rx='2' fill='none' stroke='%23b08d57' stroke-width='1.5'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- =================== SKIP LINK =================== -->
+  <a href="#hero" class="skip-link">Skip to content</a>
+
+  <!-- =================== NAV =================== -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav__inner">
+      <a href="#hero" class="brand" aria-label="Curtain Guy — Calvin, home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
+            <rect x="3" y="3" width="34" height="34" rx="4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M12 11v18M16 11v18M20 11v18M24 11v18M28 11v18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M9 11h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Curtain Guy</span>
+          <span class="brand__eyebrow">— Calvin</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#work" class="nav__link">Work</a>
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#reviews" class="nav__link">Reviews</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+        <a href="#quote" class="btn btn--primary nav__cta">Get a Quote</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="mobile-menu__inner">
+      <a href="#work" class="mobile-menu__link" data-close>Work</a>
+      <a href="#services" class="mobile-menu__link" data-close>Services</a>
+      <a href="#about" class="mobile-menu__link" data-close>About</a>
+      <a href="#process" class="mobile-menu__link" data-close>Process</a>
+      <a href="#reviews" class="mobile-menu__link" data-close>Reviews</a>
+      <a href="#faq" class="mobile-menu__link" data-close>FAQ</a>
+      <a href="#quote" class="btn btn--primary mobile-menu__cta" data-close>Get a Quote</a>
+      <p class="mobile-menu__foot">Your neighbourhood specialist<br>Precision-fitted · By Calvin</p>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- =================== HERO =================== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=2000&q=80" alt="" class="hero__img" id="heroImg" />
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="eyebrow hero__eyebrow reveal" style="--d:.05s">
+          <span class="eyebrow__dash"></span> Your neighbourhood specialist
+        </p>
+        <h1 class="hero__title reveal" style="--d:.15s">
+          Beautifully fitted<br><em>curtains, blinds</em><br>&amp; tracks.
+        </h1>
+        <p class="hero__sub reveal" style="--d:.3s">
+          Precision-measured, expertly installed — for homes that deserve the finish.
+          A one-man service by Calvin, trusted across the neighbourhood for over a decade.
+        </p>
+        <div class="hero__cta reveal" style="--d:.45s">
+          <a href="#quote" class="btn btn--primary">Request a Quote</a>
+          <a href="#work" class="btn btn--ghost">See Our Work</a>
+        </div>
+        <p class="hero__trust reveal" style="--d:.6s">
+          Your neighbourhood specialist <span aria-hidden="true">•</span>
+          Precision-fitted <span aria-hidden="true">•</span> By Calvin
+        </p>
+      </div>
+
+      <a href="#stats" class="hero__scroll" aria-label="Scroll to content">
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- =================== STATS STRIP =================== -->
+    <section class="stats" id="stats">
+      <div class="container stats__grid">
+        <div class="stat reveal" style="--d:.0s">
+          <span class="stat__num" data-count="12" data-suffix="+">0</span>
+          <span class="stat__label">Years fitting homes</span>
+        </div>
+        <div class="stat reveal" style="--d:.1s">
+          <span class="stat__num" data-count="900" data-suffix="+">0</span>
+          <span class="stat__label">Homes fitted</span>
+        </div>
+        <div class="stat reveal" style="--d:.2s">
+          <span class="stat__num" data-count="5" data-suffix="★">0</span>
+          <span class="stat__label">Rated by neighbours</span>
+        </div>
+        <div class="stat reveal" style="--d:.3s">
+          <span class="stat__num" data-count="100" data-suffix="%">0</span>
+          <span class="stat__label">Measured by Calvin</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== ABOUT / THE CRAFTSMAN =================== -->
+    <section class="about" id="about">
+      <div class="container about__grid">
+        <div class="about__media reveal">
+          <div class="about__img-frame">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80" alt="Calvin measuring and fitting curtains in a sunlit room" loading="lazy" />
+          </div>
+          <div class="about__badge">
+            <span class="about__badge-num">12+</span>
+            <span class="about__badge-text">years of<br>meticulous craft</span>
+          </div>
+        </div>
+        <div class="about__body">
+          <p class="eyebrow reveal"><span class="eyebrow__dash"></span> The Craftsman</p>
+          <h2 class="section-title reveal" style="--d:.1s">
+            One man. Every detail,<br>personally handled.
+          </h2>
+          <div class="about__copy reveal" style="--d:.2s">
+            <p>
+              I'm Calvin. For over twelve years I've fitted curtains, blinds and tracks
+              for families across the neighbourhood — and I still do every job myself.
+            </p>
+            <p>
+              No call centres, no subcontractors. I measure, I source, I install. The
+              difference is in the details: a track that sits flush, a hem that breaks
+              just right, hardware that doesn't budge after a thousand draws.
+            </p>
+            <p>
+              You'll meet me at the door, and I'll be the one finishing the job.
+            </p>
+          </div>
+          <div class="about__sig reveal" style="--d:.3s">
+            <span class="about__sig-name">Calvin</span>
+            <span class="about__sig-role">Curtain Guy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== SERVICES =================== -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal"><span class="eyebrow__dash"></span> What I Fit</p>
+          <h2 class="section-title reveal" style="--d:.1s">Three crafts.<br>One standard.</h2>
+          <p class="section-lede reveal" style="--d:.2s">
+            Curtains, blinds or tracks — sourced from trusted suppliers and fitted to
+            disappear into the architecture.
+          </p>
+        </div>
+
+        <div class="services__grid">
+          <article class="card reveal" style="--d:.0s">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=900&q=80" alt="Elegant pleated curtains framing a tall window" loading="lazy" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Curtains</h3>
+              <p class="card__text">
+                Pinch-pleat, pencil-pleat, eyelet and wave headings. From sheer light
+                filters to full blockout — lined, weighted and hung to break beautifully.
+              </p>
+              <ul class="card__list">
+                <li>Sheer &amp; dimout linings</li>
+                <li>Wave &amp; pleat headings</li>
+                <li>Custom lengths</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--d:.12s">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80" alt="Modern roller blinds in a minimalist living space" loading="lazy" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Blinds</h3>
+              <p class="card__text">
+                Roller, Roman, Venetian and honeycomb. Precise inside-or-outside mounts,
+                child-safe chains, and fabrics chosen for your light and heat.
+              </p>
+              <ul class="card__list">
+                <li>Roller &amp; Roman</li>
+                <li>Venetian &amp; honeycomb</li>
+                <li>Motorised options</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--d:.24s">
+            <div class="card__img">
+              <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80" alt="Curtain track running smoothly along a ceiling" loading="lazy" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Tracks</h3>
+              <p class="card__text">
+                Ceiling-recessed, bent-bay and motorised tracks — fitted level, anchored
+              to stud or solid, and silenced so they glide for years.</p>
+              <ul class="card__list">
+                <li>Recessed &amp; surface</li>
+                <li>Bent for bay windows</li>
+                <li>Smart &amp; motorised</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== PROCESS =================== -->
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow reveal"><span class="eyebrow__dash"></span> How It Works</p>
+          <h2 class="section-title reveal" style="--d:.1s">A calm, clear process.</h2>
+        </div>
+
+        <ol class="process__steps">
+          <li class="step reveal" style="--d:.0s">
+            <span class="step__num">01</span>
+            <h3 class="step__title">Consult &amp; Measure</h3>
+            <p class="step__text">
+              I visit at your time, listen to what you want from the room, and take exact
+              measurements — no obligation, no charge.
+            </p>
+          </li>
+          <li class="step reveal" style="--d:.15s">
+            <span class="step__num">02</span>
+            <h3 class="step__title">Tailor &amp; Source</h3>
+            <p class="step__text">
+              I bring fabric and hardware samples, help you choose, and place the order
+              with trusted local suppliers.
+            </p>
+          </li>
+          <li class="step reveal" style="--d:.3s">
+            <span class="step__num">03</span>
+            <h3 class="step__title">Precision Install</h3>
+            <p class="step__text">
+              On install day I fit, dress, and test everything myself — leaving the room
+              spotless and the hang perfect.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =================== GALLERY / WORK =================== -->
+    <section class="gallery" id="work">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal"><span class="eyebrow__dash"></span> Our Work</p>
+          <h2 class="section-title reveal" style="--d:.1s">Homes I've dressed.</h2>
+          <p class="section-lede reveal" style="--d:.2s">
+            A selection of recent installs — from sunlit sheer living rooms to
+            full-blockout bedrooms.
+          </p>
+        </div>
+
+        <div class="gallery__grid">
+          <button class="gallery__item gallery__item--tall reveal" data-img="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80" aria-label="Open image: living room with sheer curtains">
+            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Living room with floor-to-ceiling sheer curtains" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" style="--d:.08s" data-img="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=1400&q=80" aria-label="Open image: bedroom with blockout drapes">
+            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=800&q=80" alt="Bedroom with layered blockout drapes" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" style="--d:.16s" data-img="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1400&q=80" aria-label="Open image: modern dining with roman blinds">
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80" alt="Modern dining space with Roman blinds" loading="lazy" />
+          </button>
+          <button class="gallery__item gallery__item--wide reveal" style="--d:.24s" data-img="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=1600&q=80" aria-label="Open image: bright sunroom with wave curtains">
+            <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=1000&q=80" alt="Bright sunroom with wave-fold curtains" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" style="--d:.32s" data-img="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80" aria-label="Open image: minimalist window with roller blinds">
+            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80" alt="Minimalist window with sleek roller blinds" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" style="--d:.4s" data-img="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1400&q=80" aria-label="Open image: bay window with fitted curtains">
+            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80" alt="Bay window with bespoke bent track and curtains" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close image viewer">&times;</button>
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E" alt="" class="lightbox__img" id="lightboxImg" />
+    </div>
+
+    <!-- =================== TESTIMONIALS =================== -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow reveal"><span class="eyebrow__dash"></span> Neighbours Say</p>
+          <h2 class="section-title reveal" style="--d:.1s">Trusted on this street.</h2>
+        </div>
+
+        <div class="reviews__grid">
+          <figure class="review reveal" style="--d:.0s">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review__text">
+              "Calvin measured three times, sourced the exact fabric I wanted, and the
+              hang is perfect. You can tell he actually cares. Best tradesman I've had
+              in this house."
+            </blockquote>
+            <figcaption class="review__author">
+              <span class="review__name">Mei Ling</span>
+              <span class="review__place">Bishan</span>
+            </figcaption>
+          </figure>
+
+          <figure class="review reveal" style="--d:.12s">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review__text">
+              "Got motorised tracks for the whole flat. He walked me through every option,
+              no upsell, and finished ahead of schedule. Still glides like the first day."
+            </blockquote>
+            <figcaption class="review__author">
+              <span class="review__name">Arjun &amp; Priya</span>
+              <span class="review__place">Queenstown</span>
+            </figcaption>
+          </figure>
+
+          <figure class="review reveal" style="--d:.24s">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review__text">
+              "Bay windows are a nightmare to fit. Calvin bent the track on-site and the
+              curtains follow the curve seamlessly. Genuinely premium work at a fair price."
+            </blockquote>
+            <figcaption class="review__author">
+              <span class="review__name">Daniel</span>
+              <span class="review__place">Tiong Bahru</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== FAQ =================== -->
+    <section class="faq" id="faq">
+      <div class="container faq__grid">
+        <div class="faq__head">
+          <p class="eyebrow reveal"><span class="eyebrow__dash"></span> Good To Know</p>
+          <h2 class="section-title reveal" style="--d:.1s">Frequently asked.</h2>
+          <p class="faq__lede reveal" style="--d:.2s">
+            Anything else on your mind? <a href="#quote" class="inline-link">Just ask</a> —
+            I reply to every enquiry myself.
+          </p>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq__item reveal">
+            <summary class="faq__q">
+              Is the measure and quote really free?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__a"><p>Yes — completely free, with no obligation. I'll come by, measure accurately, and give you an honest quote. You decide from there.</p></div>
+          </details>
+
+          <details class="faq__item reveal" style="--d:.06s">
+            <summary class="faq__q">
+              Which areas do you cover?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__a"><p>I work across the central and eastern neighbourhoods. If you're unsure whether I reach you, send your postal code in the quote form and I'll confirm same day.</p></div>
+          </details>
+
+          <details class="faq__item reveal" style="--d:.12s">
+            <summary class="faq__q">
+              How long from quote to install?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__a"><p>Typically 1–2 weeks for stock fabrics and 3–4 weeks for bespoke orders. I'll give you a clear timeline at the quote stage and keep you posted throughout.</p></div>
+          </details>
+
+          <details class="faq__item reveal" style="--d:.18s">
+            <summary class="faq__q">
+              Which brands and fabrics do you supply?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__a"><p>I source from trusted suppliers I've worked with for years — for curtains, blinds and motorised tracks. I'll bring physical samples so you can see and feel before deciding.</p></div>
+          </details>
+
+          <details class="faq__item reveal" style="--d:.24s">
+            <summary class="faq__q">
+              Is there a warranty on the install?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__a"><p>Every install is covered for 12 months against fitting faults — tracks, brackets and workmanship. If something shifts or sticks, I'll come back and put it right.</p></div>
+          </details>
+
+          <details class="faq__item reveal" style="--d:.3s">
+            <summary class="faq__q">
+              Do you handle motorised and smart tracks?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__a"><p>Absolutely. I fit and configure motorised tracks compatible with major smart-home systems, including remote, app and voice control setup.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== QUOTE / CONTACT =================== -->
+    <section class="quote" id="quote">
+      <div class="container quote__grid">
+        <div class="quote__aside">
+          <p class="eyebrow eyebrow--light reveal"><span class="eyebrow__dash"></span> Request a Quote</p>
+          <h2 class="section-title section-title--light reveal" style="--d:.1s">
+            Let's dress<br>your windows.
+          </h2>
+          <p class="quote__lede reveal" style="--d:.2s">
+            Send a few details and I'll be in touch personally — usually within 24 hours.
+          </p>
+          <ul class="quote__assurances reveal" style="--d:.3s">
+            <li><span aria-hidden="true">✓</span> Free measure &amp; quote</li>
+            <li><span aria-hidden="true">✓</span> Reply within 24h</li>
+            <li><span aria-hidden="true">✓</span> No obligation, no pressure</li>
+          </ul>
+          <div class="quote__direct reveal" style="--d:.4s">
+            <p>Prefer to talk?</p>
+            <a href="tel:+6500000000" class="quote__direct-link">+65 0000 0000</a>
+            <a href="https://wa.me/6500000000" class="quote__direct-link">WhatsApp Calvin</a>
+          </div>
+        </div>
+
+        <div class="quote__form-wrap reveal" style="--d:.15s">
+          <form class="form" id="quoteForm" novalidate>
+            <div class="form__row">
+              <div class="form__field">
+                <label for="name" class="form__label">Name <span class="form__req">*</span></label>
+                <input type="text" id="name" name="name" class="form__input" required autocomplete="name" />
+                <span class="form__error" data-for="name"></span>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__field">
+                <label for="contact" class="form__label">Phone / WhatsApp / Email <span class="form__req">*</span></label>
+                <input type="text" id="contact" name="contact" class="form__input" required autocomplete="tel" />
+                <span class="form__error" data-for="contact"></span>
+              </div>
+            </div>
+
+            <div class="form__row form__row--2">
+              <div class="form__field">
+                <label for="service" class="form__label">Service type</label>
+                <div class="form__select-wrap">
+                  <select id="service" name="service" class="form__input form__select">
+                    <option value="">Choose…</option>
+                    <option value="curtains">Curtains</option>
+                    <option value="blinds">Blinds</option>
+                    <option value="tracks">Tracks</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form__field">
+                <label for="property" class="form__label">Property type</label>
+                <div class="form__select-wrap">
+                  <select id="property" name="property" class="form__input form__select">
+                    <option value="">Choose…</option>
+                    <option value="hdb">HDB</option>
+                    <option value="condo">Condo</option>
+                    <option value="landed">Landed</option>
+                    <option value="commercial">Commercial</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__field">
+                <label for="message" class="form__label">Message</label>
+                <textarea id="message" name="message" class="form__input form__textarea" rows="4" placeholder="Tell me about the rooms, windows, or any ideas you have…"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary form__submit" id="formSubmit">
+              <span class="form__submit-text">Send my request</span>
+            </button>
+
+            <p class="form__fineprint">By sending, you agree to be contacted about your enquiry. No spam, ever.</p>
+          </form>
+
+          <!-- Success state -->
+          <div class="form-success" id="formSuccess" aria-live="polite" hidden>
+            <div class="form-success__check" aria-hidden="true">
+              <svg viewBox="0 0 52 52" width="56" height="56"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M14 27l8 8 16-16"/></svg>
+            </div>
+            <h3 class="form-success__title">Thank you — request received.</h3>
+            <p class="form-success__text">
+              I'll be in touch personally, usually within 24 hours. Keep an eye on your
+              phone and email.
+            </p>
+            <button type="button" class="btn btn--ghost form-success__reset" id="formReset">Send another</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#hero" class="brand brand--footer">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none">
+              <rect x="3" y="3" width="34" height="34" rx="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 11v18M16 11v18M20 11v18M24 11v18M28 11v18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M9 11h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="brand__text">
+            <span class="brand__name">Curtain Guy</span>
+            <span class="brand__eyebrow">— Calvin</span>
+          </span>
+        </a>
+        <p class="footer__tagline">Precision-fitted curtains, blinds &amp; tracks. By Calvin, for the neighbourhood.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Contact</h4>
+        <ul class="footer__list">
+          <li>Calvin</li>
+          <li><a href="tel:+6500000000" class="footer__link">+65 0000 0000</a></li>
+          <li><a href="https://wa.me/6500000000" class="footer__link">WhatsApp</a></li>
+          <li><a href="mailto:calvin@curtainguy.example" class="footer__link">calvin@curtainguy.example</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Service Areas</h4>
+        <ul class="footer__list">
+          <li>Central &amp; East</li>
+          <li>Bishan · Toa Payoh</li>
+          <li>Queenstown · Tiong Bahru</li>
+          <li>Marine Parade · East Coast</li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Hours</h4>
+        <ul class="footer__list">
+          <li>Mon–Sat · 9am – 7pm</li>
+          <li>Sun · By appointment</li>
+          <li>Public holidays · Closed</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>© <span id="year">2026</span> Curtain Guy — Calvin. All rights reserved.</p>
+      <p class="footer__credit">Crafted with care.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top" hidden>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
