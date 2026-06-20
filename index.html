@@ -81,11 +81,21 @@
         <div class="hero__overlay"></div>
       </div>
 
-      <!-- Stage curtains: part as you scroll -->
+      <!-- Stage curtains: 3D fabric that gathers open as you scroll -->
       <div class="hero__stage" aria-hidden="true">
-        <div class="hero__rod"></div>
-        <div class="curtain curtain--left"></div>
-        <div class="curtain curtain--right"></div>
+        <div class="hero__rod">
+          <span class="hero__finial hero__finial--l"></span>
+          <span class="hero__finial hero__finial--r"></span>
+        </div>
+        <div class="curtain curtain--left">
+          <div class="curtain__face"></div>
+          <div class="curtain__gather"></div>
+        </div>
+        <div class="curtain curtain--right">
+          <div class="curtain__face"></div>
+          <div class="curtain__gather"></div>
+        </div>
+        <div class="hero__cast"></div>
       </div>
 
       <div class="hero__content">

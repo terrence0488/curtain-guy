@@ -444,64 +444,161 @@ ul, ol { list-style: none; }
   animation: scrollHint 2.4s var(--ease) infinite;
 }
 
-/* =================== STAGE CURTAINS =================== */
-/* Two velvet panels that part as the visitor scrolls (see main.js). */
+/* =================== STAGE CURTAINS (3D fabric) =================== */
+/* Hyper-realistic velvet drapes that gather + swing open on scroll.
+   --o (0→1) is set on #hero by main.js and inherited here. */
 .hero__stage {
   position: absolute;
   inset: 0;
   z-index: 1;            /* above .hero__bg (0), below .hero__content (2) */
   overflow: hidden;
   pointer-events: none;
+  perspective: 1500px;
+  perspective-origin: 50% 40%;
 }
+
+/* Rod + finials */
 .hero__rod {
   position: absolute;
   top: 0;
-  left: -3%;
-  right: -3%;
-  height: 14px;
-  background: linear-gradient(180deg, #7a6240 0%, #4a3a26 45%, #2c2114 100%);
-  border-radius: 0 0 6px 6px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
-  z-index: 3;
+  left: -5%;
+  right: -5%;
+  height: 16px;
+  z-index: 6;
+  background:
+    linear-gradient(180deg, #b7935f 0%, #7a5e38 40%, #4a3823 75%, #2c2014 100%);
+  border-radius: 0 0 10px 10px;
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.55),
+    inset 0 2px 0 rgba(255, 235, 200, 0.4),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.5);
 }
+.hero__finial {
+  position: absolute;
+  top: -7px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #e7c98f 0%, #b7935f 35%, #6f5430 70%, #2c2014 100%);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+.hero__finial--l { left: -12px; }
+.hero__finial--r { right: -12px; }
+
+/* Panels */
 .curtain {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 53%;            /* slight overlap at the centre when closed */
-  /* --o: 0 (closed) → 1 (drawn fully off-stage); driven by main.js */
-  transform-origin: top center;
+  top: 12px;
+  bottom: -4%;
+  width: 52%;
+  height: calc(100% - 12px);
+  transform-style: preserve-3d;
   will-change: transform;
   backface-visibility: hidden;
 }
-.curtain--left  { left: 0;  transform: translateX(calc(var(--o, 0) * -102%)); }
-.curtain--right { right: 0; transform: translateX(calc(var(--o, 0) *  102%)); }
-/* Fabric: deep velvet with vertical folds + warm top sheen */
-.curtain::before {
-  content: "";
+.curtain--left  { left: 0;  transform-origin: 0% 30%; }
+.curtain--right { right: 0; transform-origin: 100% 30%; }
+/* Scroll-driven gather + dimensional swing.
+   Left tucks left, gathers (scaleX), recedes in Z; right mirrors. */
+.curtain--left {
+  transform:
+    translate3d(calc(var(--o, 0) * -5%), 0, calc(var(--o, 0) * -160px))
+    rotateY(calc(var(--o, 0) * 24deg))
+    scaleX(calc(1 - var(--o, 0) * 0.40));
+}
+.curtain--right {
+  transform:
+    translate3d(calc(var(--o, 0) * 5%), 0, calc(var(--o, 0) * -160px))
+    rotateY(calc(var(--o, 0) * -24deg))
+    scaleX(calc(1 - var(--o, 0) * 0.40));
+}
+
+/* Fabric face: velvet pleats + grain + sheen + shading */
+.curtain__face {
   position: absolute;
   inset: 0;
   background:
+    linear-gradient(180deg,
+      rgba(190, 155, 95, 0.22) 0%,
+      rgba(150, 120, 70, 0.06) 14%,
+      rgba(0, 0, 0, 0) 34%,
+      rgba(0, 0, 0, 0.25) 78%,
+      rgba(0, 0, 0, 0.55) 100%),
     repeating-linear-gradient(90deg,
-      rgba(0,0,0,0.34) 0px,
-      rgba(255,255,255,0.045) 16px,
-      rgba(0,0,0,0.20) 34px,
-      rgba(0,0,0,0.34) 52px),
-    linear-gradient(180deg, rgba(194,168,120,0.14) 0%, rgba(194,168,120,0.02) 18%, transparent 40%),
-    linear-gradient(180deg, #271f16 0%, #181309 55%, #0c0a06 100%);
-  box-shadow: inset 0 -120px 120px -60px rgba(0,0,0,0.6);
+      #080604 0px,
+      #1c140b 8px,
+      #46361f 22px,
+      #7a5d34 33px,
+      #9b7843 37px,
+      #7a5d34 41px,
+      #46361f 52px,
+      #1c140b 66px,
+      #080604 74px),
+    linear-gradient(180deg, #211910 0%, #160f08 60%, #0a0704 100%);
+  box-shadow:
+    inset 0 90px 90px -60px rgba(0, 0, 0, 0.85),
+    inset 0 -180px 160px -80px rgba(0, 0, 0, 0.75);
+  transform-origin: 50% 0%;
+  animation: drapeSway 9s ease-in-out infinite alternate;
 }
-/* Brass piping along the leading (inner) edge of each panel */
-.curtain--left::after  { right: 0; }
-.curtain--right::after { left: 0; }
-.curtain::after {
+/* Fabric grain (fractal noise) layered over the velvet */
+.curtain__face::before {
   content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+}
+/* Moving sheen band that lifts as the panel gathers open */
+.curtain__face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(255, 240, 210, 0) 0%,
+    rgba(255, 240, 210, 0.10) 45%,
+    rgba(255, 240, 210, 0.16) 50%,
+    rgba(255, 240, 210, 0.10) 55%,
+    rgba(255, 240, 210, 0) 100%);
+  mix-blend-mode: screen;
+  opacity: calc(0.45 + var(--o, 0) * 0.5);
+}
+@keyframes drapeSway {
+  from { transform: skewX(-0.45deg); }
+  to   { transform: skewX(0.45deg); }
+}
+
+/* Gathered leading edge: the full, bright fold where the drape is pulled */
+.curtain__gather {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, var(--brass-light), var(--brass-deep));
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.55);
+  width: 46px;
+  background: linear-gradient(90deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(120, 92, 52, 0.15) 30%,
+    rgba(210, 170, 105, 0.55) 60%,
+    rgba(120, 92, 52, 0.35) 86%,
+    rgba(0, 0, 0, 0.6) 100%);
+  box-shadow: 8px 0 22px rgba(0, 0, 0, 0.55);
+  filter: blur(0.6px);
+}
+.curtain--left  .curtain__gather { right: 0; transform: scaleX(-1); }
+.curtain--right .curtain__gather { left: 0; }
+
+/* Cast shadow on the wall behind, widening as the drape opens */
+.hero__cast {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: calc(60% + var(--o, 0) * 40%);
+  height: 70%;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 60% at 50% 40%, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0) 70%);
+  opacity: calc(0.3 + var(--o, 0) * 0.5);
+  mix-blend-mode: multiply;
 }
 @keyframes scrollHint {
   0% { transform: translateY(-100%); }
